@@ -18,7 +18,7 @@ const handler = async (message: { message: string }) => {
   const users = await db.collection('users-v2').find({}).toArray();
   if (users.length > 0) {
     for (let i = 0; i < users.length; i++) {
-      bot.sendMessage(users[i].chatId, message.message)
+      bot.sendMessage(users[i].chatId, message.message, {parse_mode: 'Markdown'})
     }
   }
 }
